@@ -1,0 +1,17 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Backend install & test
+        run: |
+          cd backend
+          npm install
+      - name: Build backend image
+        run: docker build -t rimelba156/backend ./backend
